@@ -7,7 +7,7 @@
 // this is the path to my url address
 const tweetObj = '/tweets';
 
-//*************The following tweetObj was used as tests before implementing MongoDB**********
+//*************The following tweetObj was used as tests before implementing MongoDB, kept for testing purposes**********
 
 // const tweetObj =
 // [
@@ -161,14 +161,14 @@ const request = url => {
           // </form>
 
 
-
+//**** to create the alert without html structure in html file ****
 //const $myAlert = $('<span>').addClass('alertPop').text();
 // const $myAlert = $('.new-tweet form .errorMsg').val("")
 // $('.new-tweet form .errorMsg').append($(form));
 
 
 
-console.log("OUR TEST: ",$(".new-tweet form textarea")[0].value);
+//console.log("OUR TEST: ",$(".new-tweet form textarea")[0].value);
   //conditional on input message (empty string cannot submit)
   if ($(".new-tweet form textarea")[0].value === "" ){
     //$('.new-tweet form textarea').text($('<label>')"Hello human! You must enter something to submit ");
@@ -181,11 +181,8 @@ console.log("OUR TEST: ",$(".new-tweet form textarea")[0].value);
     $('.errorMsg').text(" You're above the character limit!")
     $('.errorMsg').slideDown();
 
-  }
+  } else {
 
-  else {
-
-    console.log('in the post')
     $('.new-tweet form').parent().hide();
     $('.new-tweet form').find('textarea').val("");
 
@@ -201,6 +198,7 @@ console.log("OUR TEST: ",$(".new-tweet form textarea")[0].value);
       // Creating and adding all the posts to the page
       // renderTweets(response);
       console.log(response)
+      latestTweet(tweetObj);
     })
   // Catching an error with the request
     .fail(error => {
@@ -211,11 +209,7 @@ console.log("OUR TEST: ",$(".new-tweet form textarea")[0].value);
       console.log('POST Request completed.');
     });
 
-
   }
-
-
-
 
 };
 
@@ -258,7 +252,7 @@ function latestTweet(tweetObj) {
     // callback function when the request is done. We have access to the response.
     .done(allTweetsInResponse => {
       // Creating and adding all the posts to the page
-      // ?????? renderPosts(response);
+
 
       renderTweets([allTweetsInResponse[allTweetsInResponse.length-1]]);
     //console.log(response);
@@ -278,10 +272,6 @@ function latestTweet(tweetObj) {
 
 $(document).ready(function() {
 
-//var $tweet = createTweetElement(tweetObj[0]);
-// console.log($tweet);
-// $('#tweet-container').append($tweet);
-// renderTweets(tweetObj);
 
   loadTweets('/tweets');
 
@@ -295,15 +285,17 @@ $(document).ready(function() {
     event.preventDefault();
     console.log(this, event.target);
     request(tweetObj);
-    latestTweet(tweetObj)
   });
 
+// Ajax even handler for error to user
+   $('.new-tweet').find('textarea').on('click', function(event){
+    $('.errorMsg').slideUp();
+   })
 
-
- $('#nav-bar button').on('click',function(event){
-  $('.new-tweet').show();
-  $('.new-tweet').find('textarea').select();
-})
+  $('#nav-bar button').on('click',function(event){
+    $('.new-tweet').toggle();
+    $('.new-tweet').find('textarea').select();
+  })
 
 
 });

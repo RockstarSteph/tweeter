@@ -30,7 +30,7 @@ MongoClient.connect(MONGODB_URI, (err, MongoDb) => {
   db = MongoDb;
   // we have a connection to the tweets DB here
   console.log(`Connected to mongodb: ${MONGODB_URI}`);
-  console.log(db)
+
 
 
 // The `data-helpers` module provides an interface to the database of tweets.

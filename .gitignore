@@ -1,3 +1,7 @@
 node_modules/
 .env
 .DS_Store
+
+/public/server/data-files/initial-tweets.json
+
+/public/lib/util/in-memory-db.js
