@@ -7,26 +7,71 @@
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
 
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300i,700i" rel="stylesheet">
+
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+    <!-- Nav CSS -->
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+
+      <!-- Form for new tweets CSS -->
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+
+        <!-- Form for Posted tweets CSS -->
+    <link rel="stylesheet" href="/styles/posted-tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
+     <!--  JS -->
+    <script type="text/javascript" src="/scripts/composer-char-character.js"></script>
+
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
+
+
+    <!-- adding moment.js script for relative dates/times-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/en-ca.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+
   </head>
 
   <body>
 
     <!-- Top nav bar (fixed) -->
     <nav id="nav-bar">
-      <img class="logo" src="/images/bird.png" width="80px" height="80px">
+      <img class="logo" src="/images/bird.png">
       <span class="header">Tweeter</span>
+      <button type= "button"> Compose</button>
     </nav>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+          <form method = "POST" action="/tweets">
+            <textarea name="text" placeholder="What are you humming about?"></textarea>
+            <label class ="errorMsg"> This field can't be empty! </label>
+              <input type="submit" value="Tweet">
+                <span class="counter">140</span>
+          </form>
+      </section>
+
+
+      <section id="tweet-container">
+        <article class= "posted-tweet">
+          <header>
+            <img src = "smiley.gif" alt= "User Pic">
+            <span class="username"> username </span>
+            <span class="at-username"> @username </span>
+           </header>
+          <p> Hello! This is a tweet! I'm new to this app. Please tell me more about it. Thank you. Goodbye. </p>
+          <footer> time marker - 10 days ago </footer>
+        </article>
+
+      </section>
     </main>
 
   </body>

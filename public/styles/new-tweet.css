@@ -1,0 +1,39 @@
+
+.new-tweet {
+border-radius:10px;
+border: 1px solid lightgrey;
+background-color: #EEEEEE;
+margin-right: 2em;
+margin-left: 2em;
+
+}
+
+.new-tweet h2 {
+  border-bottom: 2px solid grey;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.new-tweet input {
+  margin-right: 68%;
+  margin-left: 5%;
+  margin-bottom: 2%;
+}
+
+.new-tweet textarea {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.counter.red {
+  color: red;
+}
+
+.errorMsg {
+border-radius:3px;
+border: 1px solid lightgrey;
+background-color: #fdcbb9;
+color: #d6372f;
+margin-left: 150px;
+}
